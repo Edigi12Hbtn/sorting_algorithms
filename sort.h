@@ -36,8 +36,8 @@ void quick_sort_hoare(int *array, size_t size);
 
 int swap_nodes(listint_t *list);
 
-void quick_sort_alg(int *array, size_t size, size_t lo, size_t hi);
-size_t partition(int *array, size_t size, size_t lo, size_t hi);
+void quickSort(int *arr, size_t size, int low, int high);
+int partition (int *arr, size_t size, int low, int high);
 
 size_t knuth_idx(size_t size);
 size_t gapf(size_t idx);
