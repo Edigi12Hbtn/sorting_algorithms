@@ -14,7 +14,7 @@ void counting_sort(int *array, size_t size)
 	int count[10000];
 	size_t i = 0, j = 0, aux = 0, max_val = -1;
 
-	if (array == NULL)
+	if (array == NULL || size == 1)
 		return;
 	while (i < 10000)
 		count[i++] = 0;
