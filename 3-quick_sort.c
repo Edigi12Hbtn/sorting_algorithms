@@ -11,7 +11,10 @@
 
 void quick_sort(int *array, size_t size)
 {
-	quick_sort_alg(array, size, 0, size - 1);
+	if (array == NULL)
+		return;
+
+	quickSort(array, size, 0, (int) (size - 1));
 }
 
 /**
@@ -23,17 +26,18 @@ void quick_sort(int *array, size_t size)
  * @hi: hi limit to sort.
  */
 
-void quick_sort_alg(int *array, size_t size, size_t lo, size_t hi)
+void quickSort(int *arr, size_t size, int low, int high)
 {
-	size_t p = 0;
+	int pi;
 
-	if (lo < hi)
+	if (low < high)
 	{
-		p = partition(array, size, lo, hi);
-		quick_sort_alg(array, size, lo, p - 1);
-		quick_sort_alg(array, size, p + 1, hi);
+		pi = partition(arr, size, low, high);
+		quickSort(arr, size, low, pi - 1);
+		quickSort(arr, size, pi + 1, high);
 	}
 }
+
 
 /**
  * partition - partition funciton.
@@ -46,29 +50,30 @@ void quick_sort_alg(int *array, size_t size, size_t lo, size_t hi)
  * Return: partition.
  */
 
-size_t partition(int *array, size_t size, size_t lo, size_t hi)
+int partition (int *arr, size_t size, int low, int high)
 {
-	int aux = 0, pivot = 0;
-	size_t i = 0, j = 0;
+	int pivot = arr[high];
+	int i = (low - 1);
+	int j;
+	int aux;
 	(void) size;
 
-	pivot = array[hi];
-	i = lo - 1;
-	for (j = lo; j <= hi - 1; j++)
+	for (j = low; j <= high- 1; j++)
 	{
-		if (array[j] <= pivot)
+		if (arr[j] <= pivot)
 		{
 			i++;
-			aux = array[i];
-			array[i] = array[j];
-			array[j] = aux;
-			/*print_array(array, size);*/
+			aux = arr[i];
+			arr[i] = arr[j];
+			arr[j] = aux;
+			if (arr[i] != arr[j])
+				print_array(arr, size);
 		}
 	}
-	aux = array[i + 1];
-	array[i + 1] = array[hi];
-	array[hi] = aux;
-	/*print_array(array, size);*/
+	aux = arr[i + 1];
+	arr[i + 1] = arr[high];
+	arr[high] = aux;
+	print_array(arr, size);
 
 	return (i + 1);
 }
