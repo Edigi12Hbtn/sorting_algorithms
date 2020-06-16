@@ -72,7 +72,7 @@ int partition(int *arr, size_t size, int low, int high)
 	aux = arr[i + 1];
 	arr[i + 1] = arr[high];
 	arr[high] = aux;
-	if (arr[i] != arr[j])
+	if (arr[high] != arr[i + 1])
 		print_array(arr, size);
 
 	return (i + 1);
