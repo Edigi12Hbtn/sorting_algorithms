@@ -15,7 +15,6 @@ void cocktail_sort_list(listint_t **list)
 
 	if (list == NULL || *list == NULL)
 		return;
-
 	node = *list;
 	while (sorted == 0)
 	{
@@ -25,13 +24,9 @@ void cocktail_sort_list(listint_t **list)
 			if ((node->n) > (node->next)->n)
 			{
 				swap_nodes(node);
-
-				/* Set the head */
 				while ((*list)->prev != NULL)
 					*list = (*list)->prev;
-	
-				print_list(*list);
-				sorted = 0;
+				print_list(*list), sorted = 0;
 				node = node->prev;
 			}
 			if (node->next != NULL)
@@ -45,13 +40,9 @@ void cocktail_sort_list(listint_t **list)
 				if ((node->prev)->n > node->n)
 				{
 					swap_nodes(node->prev);
-
-					/* Set the head */
 					while ((*list)->prev != NULL)
 						*list = (*list)->prev;
-
-					print_list(*list);
-					sorted = 0;
+					print_list(*list), sorted = 0;
 					node = node->next;
 				}
 				if (node->prev != NULL)
