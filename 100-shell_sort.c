@@ -1,5 +1,14 @@
 #include "sort.h"
 
+/**
+ * shell_sort - function that sorts an array of
+ * integers in ascending order using the Shell
+ * sort algorithm, using the Knuth sequence.
+ *
+ * @array: array to sort.
+ * @size: size of array.
+ */
+
 void shell_sort(int *array, size_t size)
 {
 	size_t gap = 0, idx = 0, i = 0;
@@ -38,6 +47,8 @@ void shell_sort(int *array, size_t size)
  * algorithm.
  *
  * @size: size of array to sort.
+ *
+ * Return: knuth index.
  */
 
 size_t knuth_idx(size_t size)
@@ -57,7 +68,7 @@ size_t knuth_idx(size_t size)
  * gapf - gap function calculator for shell
  * sort with knuth sequence.
  *
- * @idx = knuth index.
+ * @idx:knuth index.
  *
  * Return: gap.
  */
@@ -66,7 +77,7 @@ size_t gapf(size_t idx)
 {
 	size_t val = (pow1(3, idx) - 1) / 2;
 
-	return val;
+	return (val);
 }
 
 /**
